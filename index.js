@@ -1,9 +1,9 @@
+const path = require("path");
 require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 const puppeteer = require("puppeteer");
 const fs = require("fs");
 const { promisify } = require("util");
 var Twitter = require("twitter");
-const path = require("path");
 var T = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
