@@ -15,7 +15,7 @@ const writeFileAsync = promisify(fs.writeFile);
 
 async function main() {
   // launch puppeteer browser
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
 
   // navigate to page
   const page = await browser.newPage();
