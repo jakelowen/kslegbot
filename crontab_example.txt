@@ -1,0 +1,1 @@
+*/2 * * * * /usr/bin/node kslegbot/index.js > /root/logs/kslegbot.log 2>&1
