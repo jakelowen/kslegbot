@@ -3,6 +3,7 @@ const puppeteer = require("puppeteer");
 const fs = require("fs");
 const { promisify } = require("util");
 var Twitter = require("twitter");
+const path = require("path");
 var T = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -15,7 +16,9 @@ const writeFileAsync = promisify(fs.writeFile);
 
 async function main() {
   // launch puppeteer browser
-  const browser = await puppeteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"]
+  });
 
   // navigate to page
   const page = await browser.newPage();
@@ -35,7 +38,9 @@ async function main() {
   browser.close();
 
   // read previous status from file
-  const prevStatusBuff = await readFileAsync("./status.json");
+  const prevStatusBuff = await readFileAsync(
+    path.resolve(__dirname, "status.json")
+  );
   // parse JSON
   const prevStatus = JSON.parse(prevStatusBuff.toString());
 
