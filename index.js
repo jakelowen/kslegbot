@@ -76,7 +76,7 @@ async function main() {
 
   // save status to file for comparison next time.
   await writeFileAsync(
-    "./status.json",
+    path.resolve(__dirname, "status.json"),
     JSON.stringify({ houseStatus, senateStatus })
   );
 }
