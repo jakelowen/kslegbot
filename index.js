@@ -48,7 +48,7 @@ async function main() {
 
     // It has changed - TWEET IT
     await T.post("statuses/update", {
-      status: `House Status: ${houseStatus}`
+      status: `House Status: ${houseStatus} #ksleg`
     }).catch(err => console.log(err));
   } else {
     console.log("House Status has not changed");
@@ -63,7 +63,7 @@ async function main() {
 
     // It has changed - TWEET IT
     await T.post("statuses/update", {
-      status: `Senate Status: ${senateStatus}`
+      status: `Senate Status: ${senateStatus} #ksleg`
     }).catch(err => console.log(err));
   } else {
     console.log("Senate Status has not changed");
